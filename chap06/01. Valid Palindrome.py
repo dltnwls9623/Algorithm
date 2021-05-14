@@ -1,11 +1,11 @@
+import re
+
+
 def is_palindrome(sentence):
     sentence = sentence.lower()
-    origin = [s for s in sentence if s.isalnum()]
-
-    if origin == origin[::-1]:
-        print("true")
-    else:
-        print("false")
+    # 정규표현식으로 영문자, 숫자만 제외 필터링
+    sentence = re.sub('[^a-z0-9]', '', sentence)
+    print(sentence == sentence[::-1])
 
 
 if __name__ == "__main__":
